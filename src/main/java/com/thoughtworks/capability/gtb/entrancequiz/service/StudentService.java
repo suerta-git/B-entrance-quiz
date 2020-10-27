@@ -12,10 +12,20 @@ public class StudentService {
     final private List<Student> students = new LinkedList<>();
 
     public StudentService() {
-        students.addAll(StudentProvider.getInitStudents());
+        init();
     }
 
     public List<Student> getStudents() {
         return students;
+    }
+
+    public void addStudent(Student student) {
+        student.setId(students.size() + 1L);
+        students.add(student);
+    }
+
+    public void init() {
+        students.clear();
+        students.addAll(StudentProvider.getInitStudents());
     }
 }
