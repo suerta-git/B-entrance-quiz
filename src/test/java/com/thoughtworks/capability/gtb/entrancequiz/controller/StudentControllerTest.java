@@ -54,8 +54,7 @@ class StudentControllerTest {
 
     @Test
     public void should_add_new_student_when_given_student_name() throws Exception {
-        final Student student = new Student();
-        student.setName("新学员");
+        final Student student = Student.builder().name("新学员").build();
         final String json = objectMapper.writeValueAsString(student);
         mockMvc.perform(post("/student").contentType(MediaType.APPLICATION_JSON).content(json))
                 .andExpect(status().isCreated());
