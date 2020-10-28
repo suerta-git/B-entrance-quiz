@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.thoughtworks.capability.gtb.entrancequiz.model.Student;
 import com.thoughtworks.capability.gtb.entrancequiz.service.StudentService;
 import com.thoughtworks.capability.gtb.entrancequiz.util.StudentProvider;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -39,7 +39,7 @@ class StudentControllerTest {
         students = new ArrayList<>(StudentProvider.getInitStudents());
     }
 
-    @BeforeEach
+    @AfterEach
     private void init() {
         studentService.init();
     }

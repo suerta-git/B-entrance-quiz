@@ -4,12 +4,12 @@ import com.thoughtworks.capability.gtb.entrancequiz.model.Student;
 import com.thoughtworks.capability.gtb.entrancequiz.util.StudentProvider;
 import org.springframework.stereotype.Service;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class StudentService {
-    final private List<Student> students = new LinkedList<>();
+    final private List<Student> students = new ArrayList<>();
 
     public StudentService() {
         init();
