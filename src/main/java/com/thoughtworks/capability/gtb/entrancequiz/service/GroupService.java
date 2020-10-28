@@ -18,6 +18,9 @@ public class GroupService {
     }
 
     public List<Group> getGroups(int total) {
+        if (total < 1) {
+            throw new IllegalArgumentException("Total group number should >= 1");
+        }
         final List<Student> students = new LinkedList<>(studentService.getStudents());
         int[] groupSizes = getGroupSizes(total, students);
         return getGroups(students, groupSizes);

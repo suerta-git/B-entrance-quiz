@@ -53,4 +53,14 @@ class GroupControllerTest {
                 .andExpect(jsonPath("$[3].students.length()").value(2))
                 .andExpect(jsonPath("$[3].name").value("4 组"));
     }
+
+    @Test
+    public void should_throw_exception_when_total_number_is_invalid() throws Exception {
+        mockMvc.perform(get("/group?total=0"))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.message").value("Total group number should >= 1"));
+        mockMvc.perform(get("/group?total=1.1"))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.message").value("Total group number should be an integer"));
+    }
 }
