@@ -37,6 +37,7 @@ public class GroupService {
 
     private Group getGroup(List<Student> students, int groupSize, int groupIndex) {
         final Group newGroup = new Group();
+        // TODO GTB-工程实践: - 存在magic number
         newGroup.setName(String.format("%d 组", groupIndex + 1));
         for (int i = 0; i < groupSize; i++) {
             Random random = new Random();
